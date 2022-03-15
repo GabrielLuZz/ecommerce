@@ -54,3 +54,18 @@ header nav ul li {
     line-height: 16px;
     color: #333333;
 }
+
+.container {
+    width: 1684px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 118px;
+}
+
+main {
+    width: 1314px;
+}
+
+aside {
+    width: 347px;
+}
