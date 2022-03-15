@@ -6,6 +6,7 @@
     text-transform: none;
     border: none;
     list-style: none;
+    background: none;
 }
 
 header {
@@ -16,6 +17,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 30px;
 }
 
 header h1 {
@@ -56,14 +58,100 @@ header nav ul li {
 }
 
 .container {
-    width: 1684px;
+    width: 1653px;
     display: flex;
     justify-content: space-between;
     margin: 0 118px;
 }
 
 main {
-    width: 1314px;
+    width: 1177px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.card {
+    width: 300px;
+    height: 380px;
+    border: 2px solid #F5F5F5;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+}
+
+.first-part {
+    min-height: 154px;
+    width: 100%;
+    background: #F5F5F5;
+    display: flex;
+    justify-content: center;
+}
+
+.second-part {
+    height: 100%;
+    width: 100%;
+    padding: 20px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    background: #FFFFFF;
+}
+
+.second-part div {
+    width: 72px;
+    height: 26px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #2E245E;
+    margin: 7px 0px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: #FFFFFF;
+}
+
+.second-part h2 {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    color: #333333;
+}
+
+.second-part p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: #828282;
+}
+
+.second-part span {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    display: inline-block;
+    color: #2E245E;
+}
+
+.second-part button {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    text-decoration-line: underline;
+    color: #828282;
 }
 
 aside {
