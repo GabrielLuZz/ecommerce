@@ -488,7 +488,21 @@ aside form button:hover {
         padding-right: 62px;
     }
     header nav {
+        min-width: 0;
+        max-width: 0;
+    }
+    header nav ul {
         display: none;
+        z-index: 99;
+        position: absolute;
+        flex-direction: column;
+        top: 70px;
+        left: 0;
+        background-color: rgba(245, 245, 245, 0.5);
+        height: 40vh;
+        width: 100vw;
+        padding: 30px;
+        justify-content: space-between;
     }
     header>img {
         left: 96%;
