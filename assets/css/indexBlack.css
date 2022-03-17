@@ -1,0 +1,106 @@
+body {
+    background-color: #131516;
+}
+
+header {
+    background-color: #1E2021;
+}
+
+header h1 {
+    color: #E8E6D7;
+}
+
+header nav ul li {
+    color: #C3BBB7;
+}
+
+header nav ul li:hover {
+    color: #C8C3BC;
+}
+
+.selected {
+    color: #C8C3BC;
+}
+
+.card {
+    border: 1px solid #847a6c;
+}
+
+.card:hover {
+    border: 2px solid #847a6c;
+}
+
+.first-part {
+    background-color: #1E2021;
+}
+
+.second-part {
+    background-color: #181a1b;
+}
+
+.second-part div {
+    background-color: #251D4B;
+    color: #DCE6E3;
+}
+
+.second-part h2 {
+    color: #C8C3BC;
+}
+
+.second-part p {
+    color: #756F66;
+}
+
+.second-part span {
+    color: #A398D8;
+}
+
+.second-part button {
+    color: #999083;
+}
+
+aside form input {
+    background-color: #1e2021;
+    border-color: #847a6c;
+    color: #fff;
+}
+
+aside form input::placeholder {
+    color: #43423e;
+}
+
+aside form button {
+    background-color: #301c91;
+}
+
+aside form button:hover {
+    color: #C8C3BC;
+}
+
+.cart-header {
+    background-color: #301c91;
+}
+
+.cart-products-without {
+    background-color: #1e2021;
+}
+
+.cart-products-full {
+    background-color: #1e2021;
+}
+
+.picture {
+    background-color: #181a1b;
+}
+
+.info h2 {
+    color: #c8c3ad;
+}
+
+.info span {
+    color: #58477c;
+}
+
+.info button {
+    color: #737978;
+}

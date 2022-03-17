@@ -7,12 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ecommerce</title>
     <link rel="stylesheet" href="assets/css/normalize.css">
-    <link rel="stylesheet" href="assets/css/index.css">
+    <link id="" rel="stylesheet" href="assets/css/index.css">
 </head>
 
 <body>
     <header>
         <h1>Weartake</h1>
+        <img src="assets/images/lua.png" alt="">
         <nav>
             <ul>
                 <li class="selected">Todos</li>
@@ -21,7 +22,13 @@
                 <li>Camisetas</li>
             </ul>
         </nav>
+        <div class="cart-opener">
+            <span>0</span> 💳
+        </div>
     </header>
+    <div class="menu-opener">
+        <img src="assets/images/menu.png" alt="">
+    </div>
     <section class="container">
         <main>
             <article class="card">
@@ -111,10 +118,64 @@
                 <section class="cart-header">
                     <h2>Carrinho de compras</h2>
                 </section>
-                <section class="cart-products-without">
-                    <h2>Carrinho vázio</h2>
-                    <small>Adicione itens</small>
+                <section class="cart-products-full">
+                    <div class="item">
+                        <div class="picture">
+                            <img src="assets/images/jaqueta.png" alt="">
+                        </div>
+                        <div class="info">
+                            <h2>Lightweight Jacket</h2>
+                            <span>R$ 100.00</span>
+                            <button>Remover produto</button>
+                        </div>
+                        <div class="cart--item--qtarea">
+                            <button class="cart--item-qtmenos">-</button>
+                            <div class="cart--item--qt">1</div>
+                            <button class="cart--item-qtmais">+</button>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="picture">
+                            <img src="assets/images/jaqueta.png" alt="">
+                        </div>
+                        <div class="info">
+                            <h2>Lightweight Jacket</h2>
+                            <span>R$ 100.00</span>
+                            <button>Remover produto</button>
+                        </div>
+                        <div class="cart--item--qtarea">
+                            <button class="cart--item-qtmenos">-</button>
+                            <div class="cart--item--qt">1</div>
+                            <button class="cart--item-qtmais">+</button>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="picture">
+                            <img src="assets/images/jaqueta.png" alt="">
+                        </div>
+                        <div class="info">
+                            <h2>Lightweight Jacket</h2>
+                            <span>R$ 100.00</span>
+                            <button>Remover produto</button>
+                        </div>
+                        <div class="cart--item--qtarea">
+                            <button class="cart--item-qtmenos">-</button>
+                            <div class="cart--item--qt">1</div>
+                            <button class="cart--item-qtmais">+</button>
+                        </div>
+                    </div>
                 </section>
+                <section class="cart-infos">
+                    <div class="amount">
+                        <span class="first">Quantidade:</span>
+                        <span class="second">3</span>
+                    </div>
+                    <div class="total">
+                        <span class="first">Total:</span>
+                        <span class="second">R$ 200,00</span>
+                    </div>
+                </section>
+
             </section>
         </aside>
     </section>

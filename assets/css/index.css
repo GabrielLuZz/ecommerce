@@ -1,4 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+@keyframes balanco {
+    0% {
+        top: 24px;
+    }
+    25% {}
+    50% {
+        top: 18px;
+    }
+    75% {}
+    100% {
+        top: 24px;
+    }
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -20,6 +34,17 @@ header {
     margin-bottom: 30px;
 }
 
+.menu-opener {
+    display: none;
+}
+
+.menu-opener img {
+    width: 50px;
+    position: absolute;
+    top: 13px;
+    left: 20px;
+}
+
 header h1 {
     font-family: 'Inter', sans-serif;
     font-style: normal;
@@ -30,7 +55,8 @@ header h1 {
 }
 
 header nav {
-    width: 346px;
+    width: 21.55%;
+    min-width: 430px;
 }
 
 header nav ul {
@@ -67,18 +93,35 @@ header nav ul li:hover {
     color: #333333;
 }
 
+header>img {
+    width: 20px;
+    position: absolute;
+    left: 97%;
+}
+
+header>img:hover {
+    animation: balanco 1s infinite;
+}
+
+.cart-opener {
+    font-size: 34px;
+    display: none;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+}
+
 .container {
-    width: 1668px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
-    margin: 0 118px;
+    padding: 0px 118px;
 }
 
 main {
-    width: 1177px;
+    width: 76.72%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
 }
 
 .card {
@@ -88,6 +131,7 @@ main {
     display: flex;
     flex-direction: column;
     margin-bottom: 40px;
+    margin-right: 47px;
 }
 
 .card:hover {
@@ -172,10 +216,12 @@ main {
 
 .second-part button:hover {
     color: #6B54DE;
+    transform: scale(1.1);
 }
 
 aside {
-    width: 347px;
+    width: 21.55%;
+    min-width: 430px;
     display: flex;
     flex-direction: column;
 }
@@ -189,7 +235,7 @@ aside form {
 
 aside form input {
     padding: 17px 14px;
-    width: 246px;
+    width: 76%;
     height: 50px;
     background: #F5F5F5;
     border: 1px solid #F5F5F5;
@@ -220,6 +266,12 @@ aside form button {
     font-size: 16px;
     line-height: 16px;
     color: #FFFFFF;
+    cursor: pointer;
+}
+
+aside form button:hover {
+    transform: scale(1.05);
+    background-color: #333333;
 }
 
 .cart {
@@ -275,4 +327,321 @@ aside form button {
     font-size: 14px;
     line-height: 16px;
     color: #828282;
+}
+
+.cart-products-full {
+    padding: 28px 19px;
+    min-height: 387px;
+    width: 100%;
+    background: #F5F5F5;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.item {
+    width: 93%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.picture {
+    width: 80px;
+    height: 100%;
+    background: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.picture img {
+    width: 100%;
+    padding: 3px;
+}
+
+.info {
+    width: 178px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.info h2 {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    color: #333333;
+}
+
+.info span {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    color: #2E245E;
+}
+
+.info button {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: #828282;
+    cursor: pointer;
+}
+
+.info button:hover {
+    color: #6B54DE;
+    transform: scale(1.1);
+}
+
+.cart--item--qtarea {
+    display: inline-flex;
+    background-color: #EEE;
+    border-radius: 10px;
+    height: 30px;
+}
+
+.cart--item--qtarea button {
+    border: 0;
+    background-color: transparent;
+    font-size: 17px;
+    outline: 0;
+    cursor: pointer;
+    padding: 0px 10px;
+    color: #333;
+}
+
+.cart--item--qt {
+    line-height: 30px;
+}
+
+.cart-infos {
+    width: 100%;
+    height: 126px;
+    padding: 30px 17px;
+    background: #333333;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.amount {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.amount .first {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 16px;
+    color: #FFFFFF;
+}
+
+.amount .second {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 16px;
+    color: #828282;
+}
+
+.total {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.total .first {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 16px;
+    color: #FFFFFF;
+}
+
+.total .second {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 16px;
+    color: #828282;
+}
+
+@media only screen and (max-width: 1029px) {
+    header {
+        padding-right: 62px;
+    }
+    header nav {
+        display: none;
+    }
+    header>img {
+        left: 96%;
+    }
+    .menu-opener {
+        display: block;
+    }
+    .cart-opener {
+        display: block;
+    }
+    .container {
+        flex-direction: column-reverse;
+        padding: 0px;
+    }
+    main {
+        justify-content: center;
+        width: 100%;
+    }
+    aside {
+        width: 100vw;
+    }
+    aside form {
+        justify-content: center;
+    }
+    aside form input {
+        margin-right: 10px;
+    }
+    .cart {
+        position: absolute;
+        width: 100vw;
+        left: 100vw;
+        display: none;
+    }
+    .picture {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        background: none;
+        margin-right: 24px;
+    }
+    .picture img {
+        width: 140px;
+    }
+    .info {
+        flex: 1;
+    }
+    .info h2 {
+        font-size: 25px;
+    }
+    .info span {
+        font-size: 16px;
+    }
+    .info button {
+        font-size: 16px;
+    }
+    .cart--item--qtarea {
+        flex: none;
+    }
+}
+
+@media only screen and (max-width: 982px) {
+    main {
+        padding: 0px 125px;
+    }
+}
+
+@media only screen and (max-width:700px) {
+    .item {
+        justify-content: space-evenly;
+    }
+    .picture {
+        flex: none;
+        width: 23%;
+    }
+    .picture img {
+        width: 121px;
+    }
+    .info {
+        width: 178px;
+        flex: none;
+    }
+    .info h2 {
+        font-size: 21px;
+    }
+    .info span {
+        font-size: 14px;
+    }
+    .info button {
+        font-size: 13px;
+    }
+}
+
+@media only screen and (max-width:630px) {
+    header>img {
+        left: 94%;
+    }
+    .card {
+        margin-right: 30px;
+    }
+    main {
+        padding: 0;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .container {
+        padding: 0px;
+        justify-content: center;
+    }
+    aside {
+        width: 85%;
+        margin: 0 auto;
+        min-width: 0;
+    }
+    aside form input {
+        width: 66%;
+    }
+    aside form button {
+        width: 75px;
+        font-size: 11px;
+    }
+}
+
+@media only screen and (max-width: 531px) {
+    aside form input {
+        min-width: 230px;
+    }
+    .card {
+        transform: scale(0.8);
+        margin-left: 25px;
+    }
+    .item {
+        transform: scale(0.7);
+    }
+}
+
+@media only screen and (max-width: 412px) {
+    header {
+        padding: 0px 50px;
+    }
+    header h1 {
+        transform: scale(0.7);
+    }
+    header>img {
+        left: 92%;
+    }
+    .menu-opener img {
+        width: 35px;
+        position: absolute;
+        top: 19px;
+        left: 20px;
+    }
+    .cart-header h2 {
+        font-size: 13px;
+    }
 }
