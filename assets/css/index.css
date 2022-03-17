@@ -290,6 +290,10 @@ aside form button:hover {
     background: #6B54DE;
 }
 
+.cart-header span {
+    display: none;
+}
+
 .cart-header h2 {
     font-family: 'Inter';
     font-style: normal;
@@ -504,6 +508,12 @@ aside form button:hover {
         padding: 30px;
         justify-content: space-between;
     }
+    .open {
+        display: flex;
+    }
+    .close {
+        display: none;
+    }
     header>img {
         left: 96%;
     }
@@ -532,9 +542,20 @@ aside form button:hover {
     }
     .cart {
         position: absolute;
+        width: 0vw;
+        right: 0;
+        display: flex;
+        top: 0;
+        height: 100vh;
+        overflow-x: hidden;
+    }
+    .cart-header span {
+        display: inline;
+        position: absolute;
+        left: 7%;
+    }
+    .openCart {
         width: 100vw;
-        left: 100vw;
-        display: none;
     }
     .picture {
         flex: 1;
