@@ -10,6 +10,10 @@ header h1 {
     color: #E8E6D7;
 }
 
+header nav ul {
+    background-color: rgba(27, 29, 30, 0.5);
+}
+
 header nav ul li {
     color: #C3BBB7;
 }

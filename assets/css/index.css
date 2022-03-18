@@ -136,11 +136,6 @@ main {
     margin-right: 47px;
 }
 
-.card:hover {
-    border: 2px solid #333333;
-    transform: scale(1.1);
-}
-
 .first-part {
     min-height: 154px;
     width: 100%;
@@ -593,6 +588,13 @@ aside form button:hover {
 @media only screen and (max-width: 982px) {
     main {
         padding: 0px 125px;
+    }
+}
+
+@media only screen and (min-width: 850px) {
+    .card:hover {
+        border: 2px solid #333333;
+        transform: scale(1.1);
     }
 }
 
