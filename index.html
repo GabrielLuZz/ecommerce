@@ -16,14 +16,15 @@
         <img src="assets/images/lua.png" alt="">
         <nav>
             <ul>
-                <li class="selected">Todos</li>
-                <li>Acessórios</li>
-                <li>Calçados</li>
-                <li>Camisetas</li>
+                <li class="selected" data-category="todos">Todos</li>
+                <li data-category="Acessórios">Acessórios</li>
+                <li data-category="Calçados">Calçados</li>
+                <li data-category="Camisetas">Camisetas</li>
             </ul>
         </nav>
         <div class="cart-opener">
-            <span>0</span> 💳
+            <span>0</span>
+            <span>💳</span>
         </div>
     </header>
     <div class="menu-opener">
@@ -31,83 +32,7 @@
     </div>
     <section class="container">
         <main>
-            <article class="card">
-                <section class="first-part">
-                    <img src="assets/images/jaqueta.png" alt="">
-                </section>
-                <section class="second-part">
-                    <div>Camisetas</div>
-                    <h2 lang="en">Lightweight Jacket</h2>
-                    <p>Adicione um pouco de energia ao seu guarda-roupa de inverno com esta jaqueta vibrante...</p>
-                    <span>R$ 100.00</span>
-                    <button>Adicionar ao carrinho</button>
-                </section>
-            </article>
 
-            <article class="card">
-                <section class="first-part">
-                    <img src="assets/images/gorro.png" alt="">
-                </section>
-                <section class="second-part">
-                    <div>Acessórios</div>
-                    <h2 lang="en">Black Hat</h2>
-                    <p>O gorro Next.js chegou! Esta beldade bordada tem um ajuste confortável que garante que...</p>
-                    <span>R$ 100.00</span>
-                    <button>Adicionar ao carrinho</button>
-                </section>
-            </article>
-
-            <article class="card">
-                <section class="first-part">
-                    <img src="assets/images/mascara.png" alt="">
-                </section>
-                <section class="second-part">
-                    <div>Acessórios</div>
-                    <h2 lang="en">Mask</h2>
-                    <p>Esta máscara facial durável é feita de duas camadas de tecido tratado e possui presilhas...</p>
-                    <span>R$ 40.00</span>
-                    <button>Adicionar ao carrinho</button>
-                </section>
-            </article>
-
-            <article class="card">
-                <section class="first-part">
-                    <img src="assets/images/camisa.png" alt="">
-                </section>
-                <section class="second-part">
-                    <div>Camisetas</div>
-                    <h2 lang="en">T-Shirt</h2>
-                    <p>Esta t-shirt é imprescindível no seu guarda-roupa, combinando o caimento intemporal de...</p>
-                    <span>R$ 100.00</span>
-                    <button>Adicionar ao carrinho</button>
-                </section>
-            </article>
-
-            <article class="card">
-                <section class="first-part">
-                    <img src="assets/images/camiseta.png" alt="">
-                </section>
-                <section class="second-part">
-                    <div>Camisetas</div>
-                    <h2 lang="en">Short-Sleeve T-Shirt</h2>
-                    <p>Agora você encontrou a camiseta básica do seu guarda-roupa. É feito de um mais grosso...</p>
-                    <span>R$ 100.00</span>
-                    <button>Adicionar ao carrinho</button>
-                </section>
-            </article>
-
-            <article class="card">
-                <section class="first-part">
-                    <img src="assets/images/casaco.png" alt="">
-                </section>
-                <section class="second-part">
-                    <div>Camisetas</div>
-                    <h2 lang="en">Champion Packable Jacket</h2>
-                    <p>Proteja-se dos elementos com esta jaqueta embalável Champion. Esta jaqueta de poliést...</p>
-                    <span>R$ 100.00</span>
-                    <button>Adicionar ao carrinho</button>
-                </section>
-            </article>
         </main>
         <aside>
             <form action="">
@@ -119,52 +44,9 @@
                     <span>❌</span>
                     <h2>Carrinho de compras</h2>
                 </section>
-                <section class="cart-products-full">
-                    <div class="item">
-                        <div class="picture">
-                            <img src="assets/images/jaqueta.png" alt="">
-                        </div>
-                        <div class="info">
-                            <h2>Lightweight Jacket</h2>
-                            <span>R$ 100.00</span>
-                            <button>Remover produto</button>
-                        </div>
-                        <div class="cart--item--qtarea">
-                            <button class="cart--item-qtmenos">-</button>
-                            <div class="cart--item--qt">1</div>
-                            <button class="cart--item-qtmais">+</button>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="picture">
-                            <img src="assets/images/jaqueta.png" alt="">
-                        </div>
-                        <div class="info">
-                            <h2>Lightweight Jacket</h2>
-                            <span>R$ 100.00</span>
-                            <button>Remover produto</button>
-                        </div>
-                        <div class="cart--item--qtarea">
-                            <button class="cart--item-qtmenos">-</button>
-                            <div class="cart--item--qt">1</div>
-                            <button class="cart--item-qtmais">+</button>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="picture">
-                            <img src="assets/images/jaqueta.png" alt="">
-                        </div>
-                        <div class="info">
-                            <h2>Lightweight Jacket</h2>
-                            <span>R$ 100.00</span>
-                            <button>Remover produto</button>
-                        </div>
-                        <div class="cart--item--qtarea">
-                            <button class="cart--item-qtmenos">-</button>
-                            <div class="cart--item--qt">1</div>
-                            <button class="cart--item-qtmais">+</button>
-                        </div>
-                    </div>
+                <section class="cart-products-without">
+                    <h2>Carrinho Vazio</h2>
+                    <span>Adicione itens</span>
                 </section>
                 <section class="cart-infos">
                     <div class="amount">

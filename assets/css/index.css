@@ -21,6 +21,8 @@
     border: none;
     list-style: none;
     background: none;
+    transition: color 1s;
+    transition: background-color 1s;
 }
 
 header {
@@ -150,7 +152,7 @@ main {
 .second-part {
     height: 100%;
     width: 100%;
-    padding: 20px 15px;
+    padding: 20px 14px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -431,10 +433,10 @@ aside form button:hover {
 
 .cart-infos {
     width: 100%;
-    height: 126px;
-    padding: 30px 17px;
+    height: auto;
+    padding: 21px 17px;
     background: #333333;
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: space-between;
 }
@@ -452,6 +454,7 @@ aside form button:hover {
     font-size: 16px;
     line-height: 16px;
     color: #FFFFFF;
+    margin-bottom: 21px;
 }
 
 .amount .second {
@@ -553,6 +556,9 @@ aside form button:hover {
         display: inline;
         position: absolute;
         left: 7%;
+    }
+    .cart section:nth-child(2) {
+        min-height: inherit;
     }
     .openCart {
         width: 100vw;

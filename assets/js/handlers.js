@@ -1,6 +1,7 @@
 let cart = [];
 
 function lightDark() {
+    let luminosidade = document.querySelector('header > img');
     let blackStyle = document.getElementById('modo');
     if (!blackStyle) {
         let head = document.querySelector('head');
@@ -19,7 +20,7 @@ function lightDark() {
     }
 }
 
-function getProductsByCategory(category) {
+function getProductsByCategory(category = 'todos') {
     if (category.toLowerCase() === 'todos') {
         return products;
     } else {
@@ -31,7 +32,7 @@ function getProductsByName(name) {
     return products.filter(item => item.name.toLowerCase().includes(name.toLowerCase()));
 }
 
-function showProductsInVitrine(filtered) {
+function showProductsInVitrine(filtered = products) {
     let vitrine = document.querySelector('main');
     vitrine.innerHTML = '';
 
@@ -39,6 +40,7 @@ function showProductsInVitrine(filtered) {
         let product = document.createElement('article');
 
         product.classList.add('card');
+        product.setAttribute('data-inCart', `${filtered[i].inCart}`)
 
         product.innerHTML = `
         <section class="first-part">
@@ -56,66 +58,38 @@ function showProductsInVitrine(filtered) {
     }
 }
 
-function createObjectProduct(product) {
-    let childsProduct = product.childNodes;
-    [, image] = childsProduct[1].childNodes;
-    [, div, , h2, , p, , span] = childsProduct[3].childNodes;
-
-    console.log(span.innerText)
-
-    let number = '';
-
-    for (let i = 0; i < span.innerText.length; i++) {
-
-        if (span.innerText[i] === '.') {
-            break;
-        }
-
-        if (!isNaN(span.innerText[i]) && span.innerText[i] !== ' ') {
-            number += span.innerText[i];
-        }
-    }
-
-    let object = {
-        img: image.getAttribute('src'),
-        category: div.innerText,
-        name: h2.innerText,
-        description: p.innerText,
-        price: number,
-        inCart: 0
-    }
-
-    return object;
-}
-
 function addCart(product) {
-
-    if (product.inCart === 0) {
-        cart.push(product);
-    }
-
-    updateCart();
-
-}
-
-function removeCart(product) {
-    for (let i = 0; i < cart.length; i++) {
-        if (cart[i].name === product.name) {
-            cart.splice(i, 1);
+    for (let i = 0; i < products.length; i++) {
+        if (products[i].name === product.childNodes[3].childNodes[3].innerText) {
+            if (parseInt(product.getAttribute('data-inCart')) === 0) {
+                cart.push(products[i]);
+                products[i].inCart++;
+            }
         }
     }
 
     updateCart()
 }
 
-function showProductsInCart() {
-    if (cart.length > 0) {
-        let areaCart = document.querySelector('.cart-products-full');
+function removeCart(product) {
+    for (let i = 0; i < products.length; i++) {
+        if (products[i].name === product.children[0].innerText) {
+
+            cart.splice(cart.findIndex(item => item.name === products[i].name), 1);
+            products[i].inCart = 0;
+        }
+    }
+
+    updateCart()
+}
+
+function showProductsInCart(somaAmount) {
+    if (somaAmount > 0) {
+        let areaCart = document.querySelector('.cart section:nth-child(2)');
         areaCart.innerHTML = '';
 
         for (let i = 0; i < cart.length; i++) {
             let item = document.createElement('div');
-
             item.classList.add('item');
 
             item.innerHTML = `
@@ -129,7 +103,7 @@ function showProductsInCart() {
             </div>
             <div class="cart--item--qtarea">
                 <button class="cart--item-qtmenos">-</button>
-                <div class="cart--item--qt">${cart[i].inCart}</div>
+                <div class="cart--item--qt">${getProductsByName(cart[i].name)[0].inCart}</div>
                 <button class="cart--item-qtmais">+</button>
             </div>`;
 
@@ -137,33 +111,40 @@ function showProductsInCart() {
         }
     }
 
+
+
 }
 
 function updateCart() {
+    let areaCart = document.querySelector('.cart section:nth-child(2)');
+    let cartInfos = document.querySelector('.cart-infos');
+    let currents = document.querySelectorAll('.card');
+    let array = [];
 
-    if (cart.length === 0) {
-        let areaCart = document.querySelector('.cart-products-full');
-        let cartInfos = document.querySelector('.cart-infos');
-
-        let h2 = document.createElement('h2');
-        let small = document.createElement('small');
-
-        h2.innerText = 'Carrinho Vázio';
-        small.innerText = 'Adicione itens';
-
-        areaCart.appendChild(h2);
-        areaCart.appendChild(small);
-
-        areaCart.classList.remove('cart-products-full');
-        areaCart.classList.add('cart-products-without');
-
-        cartInfos.style.display = 'none';
-
+    for (let i = 0; i < currents.length; i++) {
+        array.push(products.find(item => item.name === currents[i].children[1].children[1].innerText))
     }
 
-    if (cart.length === 1) {
-        let areaCart = document.querySelector('.cart-products-without');
-        let cartInfos = document.querySelector('.cart-infos');
+    showProductsInVitrine(array)
+
+    let amount = document.querySelector('.amount .second');
+    let total = document.querySelector('.total .second');
+    let cartOpener = document.querySelector('.cart-opener span');
+    let somaTotal = 0;
+    let somaAmount = 0;
+
+    for (let i = 0; i < products.length; i++) {
+        somaTotal += parseInt(products[i].price) * products[i].inCart;
+        somaAmount += products[i].inCart;
+    }
+
+    amount.innerText = somaAmount;
+    cartOpener.innerText = somaAmount;
+    total.innerText = `R$ ${somaTotal.toFixed(2)}`;
+
+
+
+    if (somaAmount === 1) {
 
         areaCart.innerHTML = '';
         areaCart.classList.remove('cart-products-without');
@@ -173,45 +154,65 @@ function updateCart() {
 
     }
 
-    showProductsInCart()
+    if (somaAmount === 0) {
+        if (document.querySelector('.openCart')) {
+            document.querySelector('.openCart').style.transition = 'width 0.4s';
+            document.querySelector('.cart').classList.remove('openCart')
+            document.querySelector('main').classList.remove('close')
+        }
 
-    let amount = document.querySelector('.amount .second');
-    let total = document.querySelector('.total .second');
-    let cartOpener = document.querySelector('.cart-opener span');
-    let somaTotal = 0;
-    let somaAmount = 0;
+        setTimeout(() => {
+            areaCart.innerHTML = '';
 
-    for (let i = 0; i < cart.length; i++) {
-        somaTotal += parseInt(cart[i].price);
-        somaAmount += cart[i].inCart;
+            let h2 = document.createElement('h2');
+            let small = document.createElement('small');
+
+            h2.innerText = 'Carrinho Vazio';
+            small.innerText = 'Adicione itens';
+
+            areaCart.appendChild(h2);
+            areaCart.appendChild(small);
+
+            areaCart.classList.remove('cart-products-full');
+            areaCart.classList.add('cart-products-without');
+
+            cartInfos.style.display = 'none';
+            document.querySelector('.cart').removeAttribute('style');
+        }, 300)
+
+
     }
 
-    amount.innerText = somaAmount;
-    cartOpener.innerText = somaAmount;
-    total.innerText = `R$ ${somaTotal.toFixed(2)}`;
+    showProductsInCart(somaAmount)
+
+
 }
 
-function increaseAmount(product) {
-    for (let i = 0; i < cart.length; i++) {
-        if (cart[i].name === product.name) {
-            cart[i].inCart++;
+function increaseAmount(name) {
+    for (let i = 0; i < products.length; i++) {
+        if (products[i].name === name) {
+            products[i].inCart++;
         }
     }
 
     updateCart();
 }
 
-function decreaseAmount() {
-    for (let i = 0; i < cart.length; i++) {
-        if (cart[i].name === product.name) {
-            cart[i].inCart--;
+function decreaseAmount(name) {
+    for (let i = 0; i < products.length; i++) {
+        if (products[i].name === name) {
+            products[i].inCart--;
+
+            if (products[i].inCart === 0) {
+                cart.splice(cart.findIndex(item => item.name === products[i].name), 1);
+            }
         }
     }
 
     updateCart();
 }
 
-function showMenu() {
+function toggleMenu() {
     let menu = document.querySelector('header nav ul');
     menu.classList.toggle('open')
 }
